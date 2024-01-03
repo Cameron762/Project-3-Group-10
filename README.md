@@ -2,9 +2,7 @@
 # **PROJECT-3**
 ![image](https://github.com/Cameron762/Project-3-Group-10/assets/72319764/0759a618-5a80-45f3-85e5-d774ed4898ad)
 
-
-**PROJECT TITLE:**
-    ASTEROID LANDINGS ON EARTH: AN INTERAcTIVE MAP
+**PROJECT TITLE:**  ASTEROID LANDINGS ON EARTH: AN INTERACTIVE MAP
 
 [PROJECT DESCRIPTION](#project-description)   
 [CONTRIBUTORS](#contributors)  
@@ -22,8 +20,8 @@
 
 **CONTRIBUTORS**
 - Kelechi Joel Github Link: https://github.com/kcjoel
--  
-- 
+-  Alex Godina Gtihub Link: 
+- Kidus Gorfe Github Link: https://github.com/KidusGorfe
 - Cameron Carson Github Link: https://github.com/Cameron762
   
 **INSTALLATION** 
@@ -32,33 +30,17 @@
 
 **DOCUMENTATION**
 
-https://fbj.springeropen.com/articles/10.1186/s43093-020-00048-3#:~:text=It%20enhances%20economic%20growth%20by,positive%20externalities%20%5B1%2C%2014%5D
 
-https://www.diva-portal.org/smash/get/diva2:1564594/FULLTEXT01.pdf
 
 *Rough breakdown of tasks:*
 
  
-- Julia Dettman: find data source, work on year 2016
-- Cameron Carson: clean the data, work on year 2017
-- Jonathan Rascon: work on year 2018
-- Kelechi Joel: work on year 2019, Readme
+- Alex Godina: 
+- Cameron Carson: 
+- Kidus Gorfe:
+- Kelechi Joel: Readme
 - Group Presentation: All
-- Slide Deck: All complete individual slides  
+- Slide Deck: All 
 
 **DEVELOPMENT**  
-- Start by downloading the clean3data.csv from the resources folder to computer
-- On a coding editor, install all neccessary installations needed to run the code
-- Using pathlib, add a path to call the csv.data directly to your editor
-- Delete unwanted columns and rows using the del function and dropna function
-- create a function that helps automatically graph coordinates, this will be used in our correlation analysis for question 4
-- Sort the data frame for only certain years and save those files to be analyzed
-- To answer Question 1, plot countries vs Arrivals
-- sort data for the first 10 countries, and plot that into a pie chart
-- To answer Question 2, plot countries vs Tourism receipts
-- sort data for the first 10 countries and plot that into a pie chart
-- To answer Question 3, plot countries vs GDP
-- sort data for the first 10 countries, and plot that into a pie chart.
-- To answer question 4, build two scatter plots: one for Inbound tourist vs GDP, and the second for GDP and receipts
-- Using the scatter plot information compare and contrast the relationships between these factors.
-- note: If any data is a huge outlier, eliminate it and redo processes so analyses can better be understood.
+
