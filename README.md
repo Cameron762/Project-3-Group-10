@@ -11,7 +11,8 @@
 [DEVELOPMENT](#development)  
 
 
-#PROJECT DESCRIPTION 
+# PROJECT DESCRIPTION
+
   Utilizing a comprehensive dataset from NASA, this projcts aims to develop an interactive map that visualizes asteroid landings on earth. Our project aims to explore and analyze the patterns and frequencies of asteroid impacts in relation to geographic locations and time periods. The primary focus is to understand which areas on Earth are more susceptible to asteroid impacts, investigate if there are discernible patterns linking the type of asteroid to its impact location, and identify any historical periods where asteroid impacts were more prevalent. By creating a user-friendly and informative tool, we intend to shed light on these key questions in the field of space science and astronomy. This focused approach ensures a targeted exploration of asteroid impacts while preventing scope creep, making the complex data on celestial phenomena accessible and engaging to a broad audience.
 
 *Research questions to ask:*
@@ -28,7 +29,7 @@
 - Python :snake:
 -
 
-**DOCUMENTATION**
+# DOCUMENTATION
 
 
 
