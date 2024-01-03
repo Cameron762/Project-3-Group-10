@@ -7,10 +7,10 @@
 [PROJECT DESCRIPTION](#project-description)   
 [CONTRIBUTORS](#contributors)  
 [INSTALLATION](#installation)  
-[DOCUMENTATION](#documentation)  
-[DEVELOPMENT](#development)
-[ETHCAL CONSIDERATIONS](#ethical-considerations)
-[REFERENCES](#references)
+[DOCUMENTATION](#documentation)   
+[DEVELOPMENT](#development)  
+[ETHCAL CONSIDERATIONS](#ethical-considerations) 
+[REFERENCES](#references) 
 
 
 
