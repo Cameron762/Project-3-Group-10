@@ -4,13 +4,20 @@
 
 **PROJECT TITLE:**  ASTEROID LANDINGS ON EARTH: AN INTERACTIVE MAP
 
-[PROJECT DESCRIPTION](#project-description)   
-[CONTRIBUTORS](#contributors)  
-[INSTALLATION](#installation)  
-[DOCUMENTATION](#documentation)   
+[PROJECT DESCRIPTION](#project-description)  
+
+[CONTRIBUTORS](#contributors) 
+
+[INSTALLATION](#installation) 
+
+[DOCUMENTATION](#documentation)  
+
 [DEVELOPMENT](#development)  
-[ETHCAL CONSIDERATIONS](#ethical-considerations) 
-[REFERENCES](#references) 
+
+[ETHCAL CONSIDERATIONS](#ethical-considerations)
+
+[REFERENCES](#references)  
+
 
 
 
