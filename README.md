@@ -8,7 +8,10 @@
 [CONTRIBUTORS](#contributors)  
 [INSTALLATION](#installation)  
 [DOCUMENTATION](#documentation)  
-[DEVELOPMENT](#development)  
+[DEVELOPMENT](#development)
+[ETHCAL CONSIDERATIONS](#ethical-considerations)
+[REFERENCES](#references)
+
 
 
 #### PROJECT DESCRIPTION
@@ -44,4 +47,8 @@
 - Slide Deck: All 
 
 #### DEVELOPMENT  
+
+#### ETHICAL CONSIDERATIONS 
+
+#### REFERENCES
 
