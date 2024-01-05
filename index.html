@@ -5,13 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Updated Leaflet CSS -->
+    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css"/>
 
-    <!-- Updated Leaflet JavaScript -->
+    <!-- Leaflet JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
 
-    <!-- Your Custom CSS -->
+    <!-- Custom CSS -->
     <style>
         #map {
             height: 600px; /* Adjust as needed */
@@ -20,20 +20,20 @@
         /* Additional styles can be added here */
     </style>
 </head>
-    
-
-    
 <body>
-    <h1>Meteorite Impact Locations</h1>
+    <div>
+      <label for="yearFilter">Filter by Year:</label>
+      <select id="yearFilter">
+        <option value="">Select Year</option>
+        <!-- Years will be populated dynamically -->
+      </select>
+    </div>
     <div id="map"></div>
 
     <!-- Custom JavaScript -->
     <script>
-        // Map center coordinates and zoom level
-        let mapCenterCoords = [0, 0]; // Update with appropriate coordinates
-        let mapZoomLevel = 2; // Adjust zoom level as needed
+        let allMeteorData = []; // Store all data globally
 
-        // Create the map
         function createMap(meteorLayer) {
             let baseLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors'
@@ -48,22 +48,28 @@
             };
 
             let map = L.map('map', {
-                center: mapCenterCoords,
-                zoom: mapZoomLevel,
+                center: [0, 0], // Map center
+                zoom: 2, // Zoom level
                 layers: [baseLayer, meteorLayer]
             });
 
             L.control.layers(baseMaps, overlayMaps, {collapsed: false}).addTo(map);
         }
 
-        // Create markers from meteor data
         function createMarkers(meteorData) {
             let meteorMarkers = [];
 
             meteorData.forEach(function(meteor) {
                 if (meteor.reclat && meteor.reclong) {
-                    let marker = L.marker([meteor.reclat, meteor.reclong])
-                        .bindPopup(`<h3>${meteor.name}</h3><hr><p>Year: ${new Date(meteor.year).getFullYear()}</p>`);
+                    let year = meteor.year ? (new Date(meteor.year)).getFullYear() : 'Unknown';
+                    let marker = L.circleMarker([parseFloat(meteor.reclat), parseFloat(meteor.reclong)], {
+                        radius: 3, // Marker size
+                        fillColor: "#ff7800",
+                        color: "#000",
+                        weight: 1,
+                        opacity: 1,
+                        fillOpacity: 0.8
+                    }).bindPopup(`<h3>${meteor.name}</h3><hr><p>Year: ${year}</p>`);
 
                     meteorMarkers.push(marker);
                 }
@@ -73,12 +79,42 @@
             createMap(meteorLayer);
         }
 
-        // Load meteor data from Flask API
+        function populateYearDropdown() {
+            let yearSet = new Set();
+            allMeteorData.forEach(meteor => {
+                if (meteor.year) {
+                    let year = (new Date(meteor.year)).getFullYear();
+                    yearSet.add(year);
+                }
+            });
+
+            let yearFilter = document.getElementById('yearFilter');
+            yearSet.forEach(year => {
+                let option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                yearFilter.appendChild(option);
+            });
+        }
+
+        function filterDataByYear() {
+            let selectedYear = document.getElementById('yearFilter').value;
+            let filteredData = allMeteorData.filter(meteor => {
+                return meteor.year && (new Date(meteor.year)).getFullYear().toString() === selectedYear;
+            });
+
+            createMarkers(filteredData);
+        }
+
+        document.getElementById('yearFilter').addEventListener('change', filterDataByYear);
+
         function loadMeteorData() {
-            fetch('http://127.0.0.1:5000/api/meteor_data')
+            fetch('http://localhost:5000/api/meteor_data')
                 .then(response => response.json())
                 .then(data => {
+                    allMeteorData = data;
                     createMarkers(data);
+                    populateYearDropdown();
                 })
                 .catch(error => console.error('Error fetching data:', error));
         }
