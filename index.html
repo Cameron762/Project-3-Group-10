@@ -14,99 +14,99 @@
     <!-- Custom CSS -->
     <style>
         #map {
-            height: 600px; /* Adjust as needed */
+            height: 600px;
             width: 100%;
         }
-        /* Additional styles can be added here */
     </style>
 </head>
 <body>
     <div>
-      <label for="yearFilter">Filter by Year:</label>
-      <select id="yearFilter">
-        <option value="">Select Year</option>
-        <!-- Years will be populated dynamically -->
-      </select>
+        <label for="yearFilter">Filter by Century:</label>
+        <select id="yearFilter">
+            <option value="">All Centuries</option>
+        </select>
     </div>
     <div id="map"></div>
 
     <!-- Custom JavaScript -->
     <script>
-        let allMeteorData = []; // Store all data globally
+        let allMeteorData = [];
+        let map = L.map('map', { center: [0, 0], zoom: 2 }); // Initialize map once
 
-        function createMap(meteorLayer) {
-            let baseLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors'
-            });
+        // Initialize the base layer of the map
+        let baseLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
 
-            let baseMaps = {
-                "Base Layer": baseLayer
-            };
-
-            let overlayMaps = {
-                "Meteorites": meteorLayer
-            };
-
-            let map = L.map('map', {
-                center: [0, 0], // Map center
-                zoom: 2, // Zoom level
-                layers: [baseLayer, meteorLayer]
-            });
-
-            L.control.layers(baseMaps, overlayMaps, {collapsed: false}).addTo(map);
+        function getCentury(year) {
+            if (!year) return 'Unknown';
+            let century = Math.ceil(year / 100);
+            return `${(century - 1) * 100 + 1}-${century * 100}`;
         }
 
         function createMarkers(meteorData) {
-            let meteorMarkers = [];
-
-            meteorData.forEach(function(meteor) {
-                if (meteor.reclat && meteor.reclong) {
-                    let year = meteor.year ? (new Date(meteor.year)).getFullYear() : 'Unknown';
-                    let marker = L.circleMarker([parseFloat(meteor.reclat), parseFloat(meteor.reclong)], {
-                        radius: 3, // Marker size
-                        fillColor: "#ff7800",
-                        color: "#000",
-                        weight: 1,
-                        opacity: 1,
-                        fillOpacity: 0.8
-                    }).bindPopup(`<h3>${meteor.name}</h3><hr><p>Year: ${year}</p>`);
-
-                    meteorMarkers.push(marker);
+            // Clear existing markers from the map
+            map.eachLayer(function(layer) {
+                if (!!layer.toGeoJSON) {
+                    map.removeLayer(layer);
                 }
             });
 
-            let meteorLayer = L.layerGroup(meteorMarkers);
-            createMap(meteorLayer);
+            // Add new markers based on the provided data
+            let meteorMarkers = L.layerGroup(
+                meteorData.map(meteor => {
+                    if (meteor.reclat && meteor.reclong) {
+                        let year = meteor.year ? (new Date(meteor.year)).getFullYear() : 'Unknown';
+                        return L.circleMarker([parseFloat(meteor.reclat), parseFloat(meteor.reclong)], {
+                            radius: 3,
+                            fillColor: "#ff7800",
+                            color: "#000",
+                            weight: 1,
+                            opacity: 1,
+                            fillOpacity: 0.8
+                        }).bindPopup(`<h3>${meteor.name}</h3><hr><p>Year: ${year}</p>`);
+                    }
+                    return null;
+                }).filter(marker => marker != null)
+            ).addTo(map);
+
+            if (meteorMarkers.getLayers().length > 0) {
+                let group = L.featureGroup(meteorMarkers.getLayers());
+                map.fitBounds(group.getBounds());
+            }
         }
 
         function populateYearDropdown() {
-            let yearSet = new Set();
+            let yearFilter = document.getElementById('yearFilter');
+            let centurySet = new Set();
             allMeteorData.forEach(meteor => {
                 if (meteor.year) {
                     let year = (new Date(meteor.year)).getFullYear();
-                    yearSet.add(year);
+                    centurySet.add(getCentury(year));
                 }
             });
 
-            let yearFilter = document.getElementById('yearFilter');
-            yearSet.forEach(year => {
+            [...centurySet].sort().forEach(century => {
                 let option = document.createElement('option');
-                option.value = year;
-                option.textContent = year;
+                option.value = century;
+                option.textContent = century;
                 yearFilter.appendChild(option);
             });
         }
 
         function filterDataByYear() {
-            let selectedYear = document.getElementById('yearFilter').value;
+            let selectedCentury = document.getElementById('yearFilter').value;
             let filteredData = allMeteorData.filter(meteor => {
-                return meteor.year && (new Date(meteor.year)).getFullYear().toString() === selectedYear;
+                if (selectedCentury === '') return true;
+                if (meteor.year) {
+                    let year = (new Date(meteor.year)).getFullYear();
+                    return getCentury(year) === selectedCentury;
+                }
+                return false;
             });
 
             createMarkers(filteredData);
         }
-
-        document.getElementById('yearFilter').addEventListener('change', filterDataByYear);
 
         function loadMeteorData() {
             fetch('http://localhost:5000/api/meteor_data')
@@ -118,6 +118,8 @@
                 })
                 .catch(error => console.error('Error fetching data:', error));
         }
+
+        document.getElementById('yearFilter').addEventListener('change', filterDataByYear);
 
         loadMeteorData();
     </script>
