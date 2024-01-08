@@ -26,18 +26,24 @@
   Utilizing a comprehensive dataset from NASA, this projcts aims to develop an interactive vosualization that showcases asteroid landings on earth over time. Our project aims to explore and analyze the patterns and frequencies of asteroid impacts in relation to geographic locations and time periods. The primary focus is to create a map visualizing which areas on Earth are more susceptible to asteroid impacts, investigate if there are discernible patterns linking the type of asteroid to its impact location, and identify any historical periods where asteroid impacts were more prevalent. By creating a user-friendly and informative tool, we intend to shed light on these key parameters in the field of space science and astronomy. This focused approach ensures a targeted exploration of asteroid impacts while preventing scope creep, making the complex data on celestial phenomena accessible and engaging to a broad audience.
 
 *Research questions to ask:*
-1. What country or locations has the most asteroid impact over time?
-2.
+1. From the year 1999-2016 how many meteorites have fallen?
+2. Using those years for analysis, does mass correspond with number of meteorite falls
+3. In those years did meteorite falls increase over time?
 
 #### CONTRIBUTORS
 - Kelechi Joel Github Link: https://github.com/kcjoel
--  Alex Godina Gtihub Link: 
+-  Alex Godina Gtihub Link: https://github.com/Smktech
 - Kidus Gorfe Github Link: https://github.com/KidusGorfe
 - Cameron Carson Github Link: https://github.com/Cameron762
   
 #### INSTALLATION 
-- Python :snake:
--
+    - Python :snake:
+    - matplotlib :part_alternation_mark:
+    - flask :baby_bottle:
+    - pymango :mango:
+    - folium
+    - pandas
+    - json
 
 ####  DOCUMENTATION
 
