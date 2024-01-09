@@ -80,6 +80,11 @@
 
 *Interactive Meteor Map*
 
+- To run the map open the interactive meteor map file and open the app.py file
+- Run the python in app.py
+- From the same interactive meteor map folder open the index.html file in your browser
+- Map should now populate and have full functionality
+
 *Meteor Heat Map*
 
 https://cameron762.github.io/testing/cumulative_heatmap_with_time.html
