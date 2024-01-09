@@ -51,18 +51,22 @@
 
  
 - Alex Godina: 
-- Cameron Carson: 
-- Kidus Gorfe:
-- Kelechi Joel: Readme
+- Cameron Carson: Meteor Heat Map
+- Kidus Gorfe: Interactive meteor map
+- Kelechi Joel: Readme, Powerpoint
 - Group Presentation: All
 - Slide Deck: All
 
 *Data source:*
 
+Data was acquired as a Json file of an API call from https://ares.jsc.nasa.gov/meteorite-falls/
+
 
 #### DEVELOPMENT 
 
 *Visualization-Analysis*
+
+![image](https://github.com/Cameron762/Project-3-Group-10/assets/72319764/49724412-0d99-45ec-bf7f-a9d0fa616a2e)
 
 - Begin by loading depedencies(json,matplotlib)
 
@@ -80,12 +84,16 @@
 
 *Interactive Meteor Map*
 
+![image](https://github.com/Cameron762/Project-3-Group-10/assets/72319764/3be67b61-4f68-48e6-af66-ff4e278b1cd8)
+
 - To run the map open the interactive meteor map file and open the app.py file
 - Run the python in app.py
 - From the same interactive meteor map folder open the index.html file in your browser
 - Map should now populate and have full functionality
 
 *Meteor Heat Map*
+
+![image](https://github.com/Cameron762/Project-3-Group-10/assets/72319764/860f69d9-e194-42a1-9a4f-38f74ebb8bb9)
 
 https://cameron762.github.io/testing/cumulative_heatmap_with_time.html
 
@@ -95,7 +103,7 @@ https://cameron762.github.io/testing/cumulative_heatmap_with_time.html
 
 #### ETHICAL CONSIDERATIONS 
   
-  There's an inherent draw to ethical considerations that aligns with research and business when it comes to our solar system and its contribution to everyday lives. Meteorites are very important for various of reasons. They're very informative on knowledge of our solar system and the formation of the earth 4.5 billion years ago, due to this it is imperative for society to be educated on findings and research that pertains to meteorite. Meteorites are also a source of metals and rare elements. According to Donald Yeomans, its estimated that the mineral wealth resident in the belt of asteroids between the orbits of Mars and Jupiter would be equivalent to about 100 billion dollars for every person on Earth today. Meteor minning has been an increasing trend lately from a lot of private companies who will like to access such minerals for monetary values. It is imperative society is informed by what steps these companies take and what limitations should be set to protect not only earths atmosphere but also core. 
+  There's an inherent draw to ethical considerations that aligns with research and business when it comes to our solar system and its contribution to everyday lives. Meteorites are very important for various of reasons. They're very informative on knowledge of our solar system and the formation of the earth 4.5 billion years ago. Due to this it is imperative for society to be educated on findings and research that pertains to meteorite. Meteorites are also a source of metals and rare elements. According to Donald Yeomans, its estimated that the mineral wealth resident in the belt of asteroids between the orbits of Mars and Jupiter would be equivalent to about 100 billion dollars for every person on Earth today. Meteor minning has been an increasing trend lately from a lot of private companies who will like to access such minerals for monetary values. It is imperative society is informed by what steps these companies take and what limitations should be set to protect not only earths atmosphere but also core. 
   
   Meteorites aren't humans and due to this can't really give consent. Due to this there isn't a lot of ethics or protection of our solar system from private companies. This is because though it is believed that our solar system belongs to each and every one of us, no country or person(s) directly owns any part of the solar system, anyone is allowed to explore and research it. Still we believe there sholuld be limitations on what kind of exploartion and if any done, should be subjected to society awareness and education. 
   
