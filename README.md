@@ -82,6 +82,12 @@
 
 *Meteor Heat Map*
 
+https://cameron762.github.io/testing/cumulative_heatmap_with_time.html
+
+- Using the link above the map will autoplay
+
+- In the bottom left corner you'll see a Play/ Pause button as well as an FPS slider to adjust the speed
+
 #### ETHICAL CONSIDERATIONS 
   
   There's an inherent draw to ethical considerations that aligns with research and business when it comes to our solar system and its contribution to everyday lives. Meteorites are very important for various of reasons. They're very informative on knowledge of our solar system and the formation of the earth 4.5 billion years ago, due to this it is imperative for society to be educated on findings and research that pertains to meteorite. Meteorites are also a source of metals and rare elements. According to Donald Yeomans, its estimated that the mineral wealth resident in the belt of asteroids between the orbits of Mars and Jupiter would be equivalent to about 100 billion dollars for every person on Earth today. Meteor minning has been an increasing trend lately from a lot of private companies who will like to access such minerals for monetary values. It is imperative society is informed by what steps these companies take and what limitations should be set to protect not only earths atmosphere but also core. 
