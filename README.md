@@ -14,7 +14,7 @@
 
 [DEVELOPMENT](#development)  
 
-[ETHCAL CONSIDERATIONS](#ethical-considerations)
+[ETHICAL CONSIDERATIONS](#ethical-considerations)
 
 [REFERENCES](#references)  
 
